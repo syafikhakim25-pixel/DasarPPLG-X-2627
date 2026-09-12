@@ -15,3 +15,36 @@ Repositori ini menampilkan animasi pertarungan luar angkasa bergaya retro yang d
 * 🐙 **GitHub:** [syafikhakim-pixel](https://github.com/syafikhakim-pixel)
 
 ---
+
+## 🎮 GitHub Action (Update Otomatis)
+
+Grafik animasi di atas diperbarui secara otomatis setiap hari menggunakan GitHub Action. 
+
+File konfigurasi berada di `.github/workflows/update-game.yml`:
+
+```yaml
+name: Update Space Shooter Game
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Berjalan otomatis setiap tengah malam UTC
+  workflow_dispatch:     # Bisa dijalankan manual kapan saja
+
+permissions:
+  contents: write
+
+jobs:
+  update-game:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
+
+      - uses: czl9707/gh-space-shooter@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: 'syafikhakim-pixel'
+          output-path: 'game.gif'
+          strategy: 'random'
+          fps: 40
