@@ -4,19 +4,22 @@ Halo! Saya **Syafiq Hakim**, siswa kelas X **Rekayasa Perangkat Lunak (RPL)** di
 
 Repositori ini menampilkan animasi pertarungan luar angkasa bergaya retro yang dibuat otomatis dari grafik kontribusi GitHub saya (menggunakan `gh-space-shooter`).
 
-![My GitHub Game](game.gif)
+### 🎮 Kontribusi GitHub Saya
+
+<!-- Tautan absolut ke gambar untuk memastikan gambar muncul setelah Action berjalan -->
+![Syafiq Hakim GitHub Game](https://raw.githubusercontent.com/syafikhakim-pixel/syafikhakim-pixel/main/game.gif)
 
 ---
 
 ## 👨‍💻 Tentang Saya
 * 🏫 **Sekolah:** SMK Muhammadiyah 3 Tangerang Selatan
 * 🎒 **Kelas:** X RPL (Rekayasa Perangkat Lunak)
-* 📧 **Email:** syafikhakim25@gmail.com
-* 🐙 **GitHub:** [syafikhakim-pixel](https://github.com/syafikhakim-pixel)
+* 📧 **Email:** [syafikhakim25@gmail.com](mailto:syafikhakim25@gmail.com)
+* 🐙 **GitHub:** [@syafikhakim-pixel](https://github.com/syafikhakim-pixel)
 
 ---
 
-## 🎮 GitHub Action (Update Otomatis)
+## 🔧 GitHub Action (Update Otomatis)
 
 Grafik animasi di atas diperbarui secara otomatis setiap hari menggunakan GitHub Action. 
 
@@ -37,7 +40,7 @@ jobs:
   update-game:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
@@ -46,5 +49,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           username: 'syafikhakim-pixel'
           output-path: 'game.gif'
-          strategy: 'random'
-          fps: 40
